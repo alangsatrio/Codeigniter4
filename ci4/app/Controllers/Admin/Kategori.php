@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\Kategori_M;
 
 class Kategori extends BaseController
 {
@@ -10,9 +11,15 @@ class Kategori extends BaseController
     }
     
     public function select(){
-        echo view("template/header");
-        echo view("kategori/select");
-        echo view("template/footer");
+        $model = new Kategori_M();
+        $kategori = $model->findAll();
+        
+        $data = [
+            'judul' => 'SELECT DATA DARI CONTROLLER',
+            'kategori' => $kategori
+        ];
+        
+        return view("kategori/select", $data);
     }
 
     public function selectWhere($id = null){
@@ -20,12 +27,13 @@ class Kategori extends BaseController
     }
 
     public function formInsert(){
-        echo "<h1>Menampilkan Form Insert</h1>";
+        return view("kategori/forminsert");
     }
 
     public function formUpdate($id = null){
-        echo "<h1>Menampilkan Form Update $id</h1>";
-    }
+        echo view("template/header");
+        echo view("kategori/update");
+        echo view("template/footer");    }
 
     public function update($id = null){
 

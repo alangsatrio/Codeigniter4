@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Restoran Ci-4</title>
+        <title>View Layout</title>
     </head>
     <body>
         <nav>
@@ -13,3 +13,7 @@
                 <a href="<?= base_url() ?>/admin/kategori/update/5"><li>Update</li></a>
             </ul>
         </nav>
+
+        <?= $this->renderSection('content') ?>
+    </body>
+</html>
